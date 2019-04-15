@@ -1,3 +1,4 @@
+import org.gradle.api.JavaVersion.VERSION_1_10
 import org.jetbrains.kotlin.gradle.plugin.KotlinPlatformJvmPlugin
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
@@ -18,9 +19,16 @@ allprojects {
   }
 }
 
+val javaVersion = VERSION_1_10
+
 subprojects {
 
   apply<KotlinPlatformJvmPlugin>()
+
+  java {
+    sourceCompatibility = javaVersion
+    targetCompatibility = javaVersion
+  }
 
   dependencies {
     implementation(kotlin("stdlib-jdk8"))
@@ -38,7 +46,7 @@ subprojects {
   }
 
   tasks.withType<KotlinCompile> {
-    kotlinOptions.jvmTarget = "10"
+    kotlinOptions.jvmTarget = javaVersion.majorVersion
   }
 }
 
