@@ -1,28 +1,22 @@
-import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
+plugins {
+    base
+    kotlin("jvm") version "1.3.30" apply false
+}
 
-buildscript {
+allprojects {
+
+    group = "org.gradle.kotlin.dsl.samples.multiproject"
+
+    version = "1.0"
+
     repositories {
-        maven {
-            setUrl("https://plugins.gradle.org/m2/")
-        }
+        jcenter()
     }
 }
 
-plugins {
-    kotlin("jvm") version "1.3.30"
-}
-
-group = "lidalia"
-version = "1.0-SNAPSHOT"
-
-repositories {
-    mavenCentral()
-}
-
 dependencies {
-    implementation(kotlin("stdlib-jdk8"))
-}
-
-tasks.withType<KotlinCompile> {
-    kotlinOptions.jvmTarget = "1.8"
+    // Make the root project archives configuration depend on every subproject
+    subprojects.forEach {
+        archives(it)
+    }
 }
