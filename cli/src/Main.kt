@@ -1,7 +1,7 @@
 @file:JvmName("Main")
-package cli
+package org.gradle.kotlin.dsl.samples.multiproject.cli
 
-import core.*
+import org.gradle.kotlin.dsl.samples.multiproject.core.DeepThought
 
 fun main(vararg args: String) {
   val answer = DeepThought.compute()
