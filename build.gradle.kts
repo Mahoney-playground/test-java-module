@@ -1,4 +1,5 @@
 import org.jetbrains.kotlin.gradle.plugin.KotlinPlatformJvmPlugin
+import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
   base
@@ -22,7 +23,7 @@ subprojects {
   apply<KotlinPlatformJvmPlugin>()
 
   dependencies {
-    implementation(kotlin("stdlib-jdk8", "1.3.30"))
+    implementation(kotlin("stdlib-jdk8"))
   }
 
   kotlin {
@@ -34,6 +35,10 @@ subprojects {
         kotlin.setSrcDirs(setOf("tests"))
       }
     }
+  }
+
+  tasks.withType<KotlinCompile> {
+    kotlinOptions.jvmTarget = "10"
   }
 }
 
