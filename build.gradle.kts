@@ -1,10 +1,12 @@
-import org.gradle.api.JavaVersion.VERSION_1_10
+import org.gradle.api.JavaVersion.VERSION_11
+import org.javamodularity.moduleplugin.ModuleSystemPlugin
 import org.jetbrains.kotlin.gradle.plugin.KotlinPlatformJvmPlugin
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
   base
   kotlin("jvm") version "1.3.30"
+  id("org.javamodularity.moduleplugin") version "1.5.0" apply false
 }
 
 allprojects {
@@ -19,11 +21,12 @@ allprojects {
   }
 }
 
-val javaVersion = VERSION_1_10
+val javaVersion = VERSION_11
 
 subprojects {
 
   apply<KotlinPlatformJvmPlugin>()
+  apply<ModuleSystemPlugin>()
 
   java {
     sourceCompatibility = javaVersion
@@ -46,7 +49,7 @@ subprojects {
   }
 
   tasks.withType<KotlinCompile> {
-    kotlinOptions.jvmTarget = javaVersion.majorVersion
+    kotlinOptions.jvmTarget = javaVersion.toString()
   }
 }
 
