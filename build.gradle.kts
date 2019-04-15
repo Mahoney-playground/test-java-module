@@ -25,16 +25,13 @@ subprojects {
     implementation(kotlin("stdlib-jdk8", "1.3.30"))
   }
 
-  tasks {
-    kotlin {
-      sourceSets {
-        main {
-          kotlin.srcDirs("src")
-
-        }
-        test {
-          kotlin.srcDirs("test")
-        }
+  kotlin {
+    sourceSets {
+      main {
+        kotlin.setSrcDirs(setOf("src"))
+      }
+      test {
+        kotlin.setSrcDirs(setOf("tests"))
       }
     }
   }
