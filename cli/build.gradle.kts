@@ -1,6 +1,5 @@
 plugins {
     application
-    kotlin("jvm")
 }
 
 application {
@@ -9,5 +8,4 @@ application {
 
 dependencies {
   implementation(project(":core"))
-  implementation(kotlin("stdlib"))
 }
