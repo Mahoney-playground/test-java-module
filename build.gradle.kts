@@ -11,7 +11,7 @@ plugins {
 
 allprojects {
 
-  group = "org.gradle.kotlin.dsl.samples.multiproject"
+  group = "lidalia.multiproject"
 
   version = "1.0"
 

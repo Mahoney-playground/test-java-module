@@ -1,7 +1,7 @@
 @file:JvmName("Main")
-package org.gradle.kotlin.dsl.samples.multiproject.cli
+package lidalia.multiproject.cli
 
-import org.gradle.kotlin.dsl.samples.multiproject.core.DeepThought
+import lidalia.multiproject.core.DeepThought
 
 fun main(vararg args: String) {
   val answer = DeepThought.compute()
