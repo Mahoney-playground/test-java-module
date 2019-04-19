@@ -1,7 +1,7 @@
 @file:JvmName("Main")
-package lidalia.multiproject.cli
+package lidalia.multiproject.cli.blah
 
-import lidalia.multiproject.core.DeepThought
+import lidalia.multiproject.core.blah.DeepThought
 
 fun main(vararg args: String) {
   val answer = DeepThought.compute()
